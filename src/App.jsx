@@ -1,10 +1,11 @@
+import { GlobalProvider } from "./contexts/GlobalContext";
+import MoviesList from "./components/MovieList";
+
 export default function App() {
-
   return (
-
-    <h1>Hello World</h1>
-
-  );
-
-
+    <GlobalProvider>
+      <h1>Movie App</h1>
+      <MoviesList />
+    </GlobalProvider>
+  )
 }
