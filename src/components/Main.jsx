@@ -56,7 +56,14 @@ export default function Main() {
             <div>
                 <ul>
                     {searchQuery.map((movie) => (
-                        <li key={movie.id}>{movie.title}, {movie.original_title}, {getFlagEmoji(movie.original_language)}, {movie.vote_average}</li>
+                        <ul className="movie_card" key={movie.id}>
+                            <li>
+                                <img src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`} alt={movie.title} /></li>
+                            <li>{getFlagEmoji(movie.original_language)}</li>
+                            <li>{movie.title}</li>
+                            <li>{movie.original_title}</li>
+                            <li>{movie.vote_average}</li>
+                        </ul>
                     ))}
                 </ul>
             </div>
@@ -78,7 +85,14 @@ export default function Main() {
             <div>
                 <ul>
                     {searchQueryTV.map((tv) => (
-                        <li key={tv.id}>{tv.name}, {tv.original_name}, {getFlagEmoji(tv.original_language)}, {tv.vote_average}</li>
+                        <ul className="movie_card" key={tv.id}>
+                            <li>
+                                <img src={`https://image.tmdb.org/t/p/w342/${tv.poster_path}`} alt={tv.name} /></li>
+                            <li>{getFlagEmoji(tv.original_language)}</li>
+                            <li>{tv.name}</li>
+                            <li>{tv.original_name}</li>
+                            <li>{tv.vote_average}</li>
+                        </ul>
                     ))}
                 </ul>
             </div>
