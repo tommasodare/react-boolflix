@@ -54,16 +54,15 @@ export default function Main() {
             </div>
 
             <div>
-                <ul>
+                <ul className="movie_list">
                     {searchQuery.map((movie) => (
-                        <ul className="movie_card" key={movie.id}>
-                            <li>
-                                <img src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`} alt={movie.title} /></li>
-                            <li>{getFlagEmoji(movie.original_language)}</li>
-                            <li>{movie.title}</li>
-                            <li>{movie.original_title}</li>
-                            <li>{movie.vote_average}</li>
-                        </ul>
+                        <div className="movie_card" key={movie.id}>
+                            <img src={`https://image.tmdb.org/t/p/w185/${movie.poster_path}`} alt={movie.title} />
+                            <p>{getFlagEmoji(movie.original_language)}</p>
+                            <p>{movie.title}</p>
+                            <p>{movie.original_title}</p>
+                            <p>{movie.vote_average}</p>
+                        </div>
                     ))}
                 </ul>
             </div>
@@ -83,16 +82,15 @@ export default function Main() {
 
 
             <div>
-                <ul>
+                <ul className="movie_list">
                     {searchQueryTV.map((tv) => (
-                        <ul className="movie_card" key={tv.id}>
-                            <li>
-                                <img src={`https://image.tmdb.org/t/p/w342/${tv.poster_path}`} alt={tv.name} /></li>
-                            <li>{getFlagEmoji(tv.original_language)}</li>
-                            <li>{tv.name}</li>
-                            <li>{tv.original_name}</li>
-                            <li>{tv.vote_average}</li>
-                        </ul>
+                        <div className="movie_card" key={tv.id}>
+                            <img src={`https://image.tmdb.org/t/p/w185/${tv.poster_path}`} alt={tv.name} />
+                            <p>{getFlagEmoji(tv.original_language)}</p>
+                            <p>{tv.name}</p>
+                            <p>{tv.original_name}</p>
+                            <p>{tv.vote_average}</p>
+                        </div>
                     ))}
                 </ul>
             </div>

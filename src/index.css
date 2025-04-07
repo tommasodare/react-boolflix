@@ -4,9 +4,14 @@
   box-sizing: border-box;
 }
 
+.movie_list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
 .movie_card {
   list-style: none;
-  display: flex;
-  flex-direction: row;
-  gap: 0.5rem;
 }
