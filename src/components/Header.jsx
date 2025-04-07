@@ -38,7 +38,7 @@ export default function Header() {
                     </div>
 
                     <div className="tv">
-                        <h1>TV</h1>
+                        <h1>SERIES TV</h1>
                         <form className="d-flex" role="search" onSubmit={handleSearchTV}>
                             <input className="form-control me-2"
                                 type="search"
