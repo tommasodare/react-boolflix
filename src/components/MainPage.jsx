@@ -48,9 +48,10 @@ export default function MainPage() {
                                 <div className="card-body">
                                     <h2 className="card-title">Titolo: {movie.title}</h2>
                                     <h4 className="card-subtitle mb-2 text-muted ">Titolo Originale: {movie.original_title}</h4>
-                                    <p className="card-text">Voto: ⭐{movie.vote_average}</p>
+                                    <p className="card-text">Voto: {"⭐".repeat(Number((movie.vote_average) / 2).toFixed()) +
+                                        "☆".repeat(5 - Number((movie.vote_average) / 2).toFixed())}</p>
                                     <p>Overview: {movie.overview}</p>
-                                    <p>{getFlagEmoji(movie.original_language)}</p>
+                                    {/* <img src={getFlagEmoji(movie.original_language)} /> */}
                                 </div>
                             </div>
                         ))}
@@ -67,9 +68,10 @@ export default function MainPage() {
                                 <div className="card-body">
                                     <h2 className="card-title">Titolo: {tv.name}</h2>
                                     <h4 className="card-subtitle mb-2 text-muted ">Titolo Originale: {tv.original_name}</h4>
-                                    <p className="card-text">Voto: ⭐{tv.vote_average}</p>
+                                    <p className="card-text"><p className="card-text">Voto: {"⭐".repeat(Number((tv.vote_average) / 2).toFixed()) +
+                                        "☆".repeat(5 - Number((tv.vote_average) / 2).toFixed())}</p></p>
                                     <p>Overview: {tv.overview}</p>
-                                    <p>{getFlagEmoji(tv.original_language)}</p>
+                                    {/* <p>{getFlagEmoji(tv.original_language)}</p> */}
                                 </div>
                             </div>
                         ))}
