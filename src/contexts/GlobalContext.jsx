@@ -1,17 +1,29 @@
 import { createContext, useContext, useState } from "react";
 
 const GlobalContext = createContext()
-const api_key = import.meta.env.VITE_API_KEY
+const api_key = import.meta.env.VITE_MOVIE_DB_API_KEY
 
 
 function GlobalProvider({ children }) {
 
-    const [movies, setMovies] = useState([])
-    const [searchQuery, setSearchQuery] = useState("")
+    const [searchText, setSearchText] = useState("")
+    const [searchQuery, setSearchQuery] = useState([])
+
+    const handleSearch = (e) => {
+        e.preventDefault()
+        fetch(`https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query=${searchText}`)
+            .then(res => res.json())
+            .then(data => {
+                setSearchQuery(data.results)
+            })
+            .catch(err => console.log(err))
+
+    }
+
 
     return (
 
-        <GlobalContext.Provider value={{ movies, setMovies, searchQuery, setSearchQuery }}>
+        <GlobalContext.Provider value={{ searchText, setSearchText, searchQuery, setSearchQuery, handleSearch }}>
             {children}
         </GlobalContext.Provider>
 
