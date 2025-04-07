@@ -1,4 +1,5 @@
 import { useGlobal } from "../contexts/GlobalContext"
+import Header from '../components/Header'
 
 
 export default function Main() {
@@ -35,61 +36,36 @@ export default function Main() {
 
         <>
 
-
-            <div className="container">
-                <div className="nav">
-                    <h1>Boolflix</h1>
-                </div>
-
-                <h1>MOVIE</h1>
-                <form className="d-flex" role="search" onSubmit={handleSearch}>
-                    <input className="form-control me-2"
-                        type="search"
-                        placeholder="Search"
-                        aria-label="Search"
-                        value={searchText}
-                        onChange={(e) => setSearchText(e.target.value)} />
-                    <button className="btn btn-outline-success" type="submit">Search</button>
-                </form>
-            </div>
+            <Header />
 
             <div>
                 <ul className="movie_list">
                     {searchQuery.map((movie) => (
-                        <div className="movie_card" key={movie.id}>
-                            <img src={`https://image.tmdb.org/t/p/w185/${movie.poster_path}`} alt={movie.title} />
-                            <p>{getFlagEmoji(movie.original_language)}</p>
-                            <p>{movie.title}</p>
-                            <p>{movie.original_title}</p>
-                            <p>{movie.vote_average}</p>
+                        <div key={movie.id} className="card" style={{ width: "18rem" }}>
+                            <img src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`} className="card-img-top" alt={movie.title} />
+                            <div className="card-body">
+                                <h2 className="card-title">{movie.title}</h2>
+                                <h4 className="card-subtitle mb-2 text-muted ">{movie.original_title}</h4>
+                                <p className="card-text">{movie.vote_average}</p>
+                                <p>{getFlagEmoji(movie.original_language)}</p>
+                            </div>
                         </div>
                     ))}
                 </ul>
-            </div>
-
-            <div className="container">
-                <h1>TV</h1>
-                <form className="d-flex" role="search" onSubmit={handleSearchTV}>
-                    <input className="form-control me-2"
-                        type="search"
-                        placeholder="Search"
-                        aria-label="Search"
-                        value={searchText}
-                        onChange={(e) => setSearchText(e.target.value)} />
-                    <button className="btn btn-outline-success" type="submit">Search</button>
-                </form>
             </div>
 
 
             <div>
                 <ul className="movie_list">
                     {searchQueryTV.map((tv) => (
-                        <div className="movie_card" key={tv.id}>
-                            <img src={`https://image.tmdb.org/t/p/w185/${tv.poster_path}`} alt={tv.name} />
-                            <p>{getFlagEmoji(tv.original_language)}</p>
-                            <p>{tv.name}</p>
-                            <p>{tv.original_name}</p>
-                            <p>{tv.vote_average}</p>
+                        <div key={tv.id} className="card" style={{ width: "18rem" }}>
+                            <img src={`https://image.tmdb.org/t/p/w300/${tv.poster_path}`} className="card-img-top" alt={tv.name} />
+                            <div className="card-body">
+                                <h2 className="card-title">{tv.name}</h2>
+                                <h4 className="card-subtitle mb-2 text-muted ">{tv.original_name}</h4>
+                                <p className="card-text">{tv.vote_average}</p>
+                                <p>{getFlagEmoji(tv.original_language)}</p>
+                            </div>
                         </div>
                     ))}
                 </ul>
