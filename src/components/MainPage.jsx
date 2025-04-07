@@ -44,11 +44,12 @@ export default function MainPage() {
                     <ul className="movie_list">
                         {searchQuery.map((movie) => (
                             <div key={movie.id} className="card" style={{ width: "18rem" }}>
-                                <img src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`} className="card-img-top" alt={movie.title} />
+                                <img src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`} className="card-img-top" alt={movie.title} />
                                 <div className="card-body">
-                                    <h2 className="card-title">{movie.title}</h2>
-                                    <h4 className="card-subtitle mb-2 text-muted ">{movie.original_title}</h4>
-                                    <p className="card-text">{movie.vote_average}</p>
+                                    <h2 className="card-title">Titolo: {movie.title}</h2>
+                                    <h4 className="card-subtitle mb-2 text-muted ">Titolo Originale: {movie.original_title}</h4>
+                                    <p className="card-text">Voto: ⭐{movie.vote_average}</p>
+                                    <p>Overview: {movie.overview}</p>
                                     <p>{getFlagEmoji(movie.original_language)}</p>
                                 </div>
                             </div>
@@ -62,11 +63,12 @@ export default function MainPage() {
                     <ul className="movie_list">
                         {searchQueryTV.map((tv) => (
                             <div key={tv.id} className="card" style={{ width: "18rem" }}>
-                                <img src={`https://image.tmdb.org/t/p/w300/${tv.poster_path}`} className="card-img-top" alt={tv.name} />
+                                <img src={`https://image.tmdb.org/t/p/w342/${tv.poster_path}`} className="card-img-top" alt={tv.name} />
                                 <div className="card-body">
-                                    <h2 className="card-title">{tv.name}</h2>
-                                    <h4 className="card-subtitle mb-2 text-muted ">{tv.original_name}</h4>
-                                    <p className="card-text">{tv.vote_average}</p>
+                                    <h2 className="card-title">Titolo: {tv.name}</h2>
+                                    <h4 className="card-subtitle mb-2 text-muted ">Titolo Originale: {tv.original_name}</h4>
+                                    <p className="card-text">Voto: ⭐{tv.vote_average}</p>
+                                    <p>Overview: {tv.overview}</p>
                                     <p>{getFlagEmoji(tv.original_language)}</p>
                                 </div>
                             </div>

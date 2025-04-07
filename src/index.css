@@ -1,3 +1,7 @@
+@import 'bootstrap';
+@import 'bootstrap-icons';
+
+
 * {
   margin: 0;
   padding: 0;
@@ -38,10 +42,8 @@ main {
   background-color: black;
   min-height: 100vh;
 
-  h2,
-  h4,
   p {
-    color: white;
+    color: black;
   }
 }
 
@@ -51,6 +53,24 @@ main {
   justify-content: center;
   gap: 20px;
   padding: 20px;
+
+  .card:hover {
+
+    .card-body {
+      display: block;
+    }
+
+    img {
+      display: none;
+    }
+
+  }
+
+  .card-body {
+    display: none;
+  }
+
+
 }
 
 .titol {
