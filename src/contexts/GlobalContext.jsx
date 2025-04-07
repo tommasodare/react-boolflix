@@ -1,20 +1,26 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useState } from "react";
 
 const GlobalContext = createContext()
+const api_key = import.meta.env.VITE_API_KEY
+
 
 function GlobalProvider({ children }) {
-    const [user, setUser] = useState(null)  // Corretta sintassi destructuring
+
+    const [movies, setMovies] = useState([])
+    const [searchQuery, setSearchQuery] = useState("")
 
     return (
-        <GlobalContext.Provider value={{ user, setUser }}>
+
+        <GlobalContext.Provider value={{ movies, setMovies, searchQuery, setSearchQuery }}>
             {children}
         </GlobalContext.Provider>
+
     )
+
 }
 
-function useGlobalContext() {
-    const context = useContext(GlobalContext);
-    return context;
+function useGlobal() {
+    return useContext(GlobalContext)
 }
 
-export { GlobalProvider, useGlobalContext }
+export { useGlobal, GlobalProvider }
