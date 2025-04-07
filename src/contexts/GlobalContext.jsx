@@ -8,6 +8,8 @@ function GlobalProvider({ children }) {
 
     const [searchText, setSearchText] = useState("")
     const [searchQuery, setSearchQuery] = useState([])
+    const [searchQueryTV, setSearchQueryTV] = useState([])
+
 
     const handleSearch = (e) => {
         e.preventDefault()
@@ -20,10 +22,21 @@ function GlobalProvider({ children }) {
 
     }
 
+    const handleSearchTV = (e) => {
+        e.preventDefault()
+        fetch(`https://api.themoviedb.org/3/search/tv?api_key=${api_key}&query=${searchText}`)
+            .then(res => res.json())
+            .then(data => {
+                setSearchQueryTV(data.results)
+            })
+            .catch(err => console.log(err))
+
+    }
+
 
     return (
 
-        <GlobalContext.Provider value={{ searchText, setSearchText, searchQuery, setSearchQuery, handleSearch }}>
+        <GlobalContext.Provider value={{ searchText, setSearchText, searchQuery, setSearchQuery, handleSearch, handleSearchTV, searchQueryTV, setSearchQueryTV }}>
             {children}
         </GlobalContext.Provider>
 
