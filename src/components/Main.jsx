@@ -26,7 +26,7 @@ export default function Main() {
             <div>
                 <ul>
                     {searchQuery.map((movie) => (
-                        <li key={movie.id}>{movie.title}</li>
+                        <li key={movie.id}>{movie.title}, {movie.original_title}, {movie.original_language}, {movie.vote_count}</li>
                     ))}
                 </ul>
             </div>
