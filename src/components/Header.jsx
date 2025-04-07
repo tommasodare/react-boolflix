@@ -25,7 +25,7 @@ export default function Header() {
                 <div className="rigth_container">
 
                     <div className="movie">
-                        <h1>MOVIES</h1>
+                        <h3>MOVIES</h3>
                         <form className="d-flex" role="search" onSubmit={handleSearch}>
                             <input className="form-control me-2"
                                 type="search"
@@ -38,7 +38,7 @@ export default function Header() {
                     </div>
 
                     <div className="tv">
-                        <h1>SERIES TV</h1>
+                        <h3>SERIES TV</h3>
                         <form className="d-flex" role="search" onSubmit={handleSearchTV}>
                             <input className="form-control me-2"
                                 type="search"
